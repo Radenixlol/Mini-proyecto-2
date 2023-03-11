@@ -1,0 +1,5 @@
+export const Home_link = "/"
+export const Register_link = "/register"
+export const Login_link = "/login"
+export const Pelis_link = "/pelis"
+export const Filter_link = "/filter"
