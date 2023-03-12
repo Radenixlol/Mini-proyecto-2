@@ -12,6 +12,8 @@ import {
   Pelis_link,
   Register_link,
 } from "./Links/links";
+import Login from './Pages/Login'
+import Register from './Pages/Register'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -19,8 +21,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <AuthContextProvider>
         <Routes>
           <Route path={Home_link} element={<h1>Home</h1>} />
-          <Route path={Register_link} element={<h1>Register</h1>} />
-          <Route path={Login_link} element={<h1>Login</h1>} />
+          <Route path={Register_link} element={<Register/>} />
+          <Route path={Login_link} element={<Login/>} />
           <Route path={Pelis_link} element={<h1>Pelis</h1>} />
           <Route path={Details_link} element={<h1>Detalles</h1>} />
           <Route path={Filter_link} element={<h1>Filter</h1>} />
