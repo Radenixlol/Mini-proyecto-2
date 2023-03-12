@@ -1,24 +1,39 @@
-import React, {useState} from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { UserAuth } from "../Context/AuthContext";
+import { Pelis_link } from "../Links/links";
+import { loginWithEmailAndPassword, signInWithGoogle } from "../Firebase/auth";
 
-const Login = () => {
-  /*const {user, logIn} = UserAuth()*/
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export function Login() {
   const navigate = useNavigate();
-  const [error, setError] = useState('')
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('')
-    try {
-      await logIn(email, password);
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-      setError(error.message)
-    }
+  const onSuccess = () => {
+    navigate(Pelis_link);
+  };
+
+  const onFail = (_error) => {
+    console.log("LOGIN FAILED, Try Again");
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    await loginWithEmailAndPassword({ userData: formData, onSuccess, onFail });
+  };
+
+  const onChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormData((oldData) => ({ ...oldData, [name]: value }));
+  };
+
+  const handleGoogleClick = async () => {
+    await signInWithGoogle({
+      onSuccess: () => navigate(Pelis_link),
+    });
   };
   return (
     <>
@@ -28,20 +43,19 @@ const Login = () => {
           <div className="max-w-[450px] h-[550px] mx-auto bg-black/70 text-white rounded-3xl">
             <div className="max-w-[360px] mx-auto py-14">
               <h1 className="text-2xl font-bold text-center">Ingresa</h1>
-              {error ? <p className='p-3 bg-red-400 my-2'>{error}</p> : null}
               <form
                 onSubmit={handleSubmit}
                 className="w-full flex flex-col py-4"
               >
                 <input
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={onChange}
                   className="p-3 my-2.5 bg-gray-600 rounded-sm"
                   type="email"
                   placeholder="Correo Electrónico"
                   autoComplete="email"
                 />
                 <input
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={onChange}
                   className="p-3 my-2.5 bg-gray-600 rounded-sm"
                   type="password"
                   placeholder="Contraseña"
@@ -64,12 +78,21 @@ const Login = () => {
                   <Link to="/register">Registrase</Link>
                 </p>
               </form>
+              <div className="p-0 mt-5 mb-0 mx-auto border-solid border-t-[1px] border-gray-600 h-1"></div>
+              <div className="w-full flex flex-col py-4">
+                <button
+                  onClick={handleGoogleClick}
+                  className="bg-gray-200 py-3 my-6 rounded font-bold"
+                >
+                  Registrar con Google
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </>
   );
-};
+}
 
 export default Login;
