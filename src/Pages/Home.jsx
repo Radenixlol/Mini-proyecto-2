@@ -1,6 +1,6 @@
 import React from "react";
 
-const Home = () => {
+export function Home() {
   return (
     <div className="w-full h-screen">
       <div className="overflow-x-hidden">
