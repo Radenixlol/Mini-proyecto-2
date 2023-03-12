@@ -12,9 +12,9 @@ import {
 export const Navbar = () => {
   return (
     <>
-      <div class="flex items-center justify-between p-4 z-[100] w-full absolute">
+      <div className="flex items-center justify-between p-4 z-[100] w-full absolute">
       <Link to= {Home_link} >
-        <button class="text-red-600 text-4x1 font-bold  cursor-pointer">
+        <button className="text-red-600 text-4x1 font-bold  cursor-pointer">
           {" "}
           NETFLIX
         </button>
