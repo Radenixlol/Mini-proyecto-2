@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <AuthContextProvider>
         <Routes>
-          <Route path={Home_link} element={<h1>Home</h1>} />
+          <Route path={Home_link} element={<Home/>} />
           <Route path={Register_link} element={<Register/>} />
           <Route path={Login_link} element={<Login/>} />
           <Route path={Pelis_link} element={<h1>Pelis</h1>} />
