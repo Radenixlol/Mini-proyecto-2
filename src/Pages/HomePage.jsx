@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import Section from "../Components/HomePage/Section"
 import { MovieGrid } from "../Components/HomePage/MovieGrid"
 
@@ -26,3 +27,22 @@ export function HomePage (){
     </div>
  )
  }
+=======
+import { useSearchParams } from "react-router-dom";
+import MovieGrid from "../Components/HomePage/MovieGrid";
+import { Search } from "../Components/HomePage/Search";
+import { useDebounce } from "../hooks/useDebounce";
+
+export function LandingPage() {
+  const [query] = useSearchParams();
+  const search = query.get("search");
+
+  const debouncedSearch = useDebounce(search, 300);
+  return (
+    <div>
+      <Search />
+      <MovieGrid key={debouncedSearch} search={debouncedSearch} />
+    </div>
+  );
+}
+>>>>>>> Stashed changes

@@ -1,8 +1,12 @@
-import React, {useEffect, useState} from 'react'
-import { MovieCard } from "./MovieCard"
-import api from '../../utils/api'
-import { request } from '../../utils/requests'
+import { useEffect, useState } from "react";
+import { get } from "../utils/httpClient";
+import { MovieCard } from "./MovieCard";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { Empty } from "./Empty";
+import axios from "axios";
+import { getUrl } from "../../utils/httpRequests";
 
+<<<<<<< Updated upstream
 
 
 export function MoviesGrid( {fetch}){
@@ -13,17 +17,43 @@ export function MoviesGrid( {fetch}){
             const {data} = await api.get(request[fetch])
             setMovies(data.results)
         }
+=======
+export function MovieGrid({ search }) {
+  const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+>>>>>>> Stashed changes
 
-        fetchMovies()
-    }, [fetch])
-    
-    return (
-        <ul className="grid gap-10 justify-center p-10 grid-cols-[repeat(auto-fill,_230px)]">
-            {movies.map((movie) => (
-                <MovieCard key={movie.id} movie={movie} /> 
-            ))}
-        </ul>
+  useEffect(() => {
+    setIsLoading(true);
+    const searchUrl = getUrl(search, page);
 
-    );
+    axios.get(searchUrl).then((response) => {
+      setMovies((prevMovies) => prevMovies.concat(response.data.results));
+      setHasMore(data.page < data.total_pages);
+      setIsLoading(false);
+    });
+  }, [search, page]);
 
+<<<<<<< Updated upstream
+=======
+  if (!isLoading && movies.length === 0) {
+    return <Empty />;
+  }
+
+  return (
+    <InfiniteScroll
+      dataLength={movies.length}
+      hasMore={hasMore}
+      next={() => setPage((prevPage) => prevPage + 1)}
+    >
+      <ul className="grid gap-10 justify-center p-10 grid-cols-[repeat(auto-fill,_230px)]">
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </ul>
+    </InfiniteScroll>
+  );
+>>>>>>> Stashed changes
 }
