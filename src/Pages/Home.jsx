@@ -1,5 +1,13 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
+import {
+  Details_link,
+  Filter_link,
+  Home_link,
+  Login_link,
+  Pelis_link,
+  Register_link,
+} from "../Links/links";
 export function Home() {
   return (
 
@@ -14,22 +22,18 @@ export function Home() {
   >
     <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
     <h1 className="text-5xl font-medium text-white max-w-lg tracking-wide">
-      Unlimited movies, TV shows, and more.
+      Peliculas ilimitadas, Shows de TV y mas para la comunidad.
     </h1>
     <h2 className="text-2xl text-white mt-4 mb-8">
-      Watch anywhere. Cancel anytime.
+      Mira desde cualquier parte.
     </h2>
     <p className="text-white text-lg">
-      Ready to watch? Enter your email to create or restart your membership.
+      Gratis para la comunidad unimetana, que esperas para registrarte ?
     </p>
     <div className="flex mt-4">
-      <input
-        placeholder="Email address"
-        className="bg-white p-4 min-w-[400px]"
-      />
+      <Link to={Register_link}>
       <button
-        onClick={() => signIn()}
-        className="flex items-center bg-[#e50914] text-white text-xl px-8"
+        className="flex items-center bg-[#000dff] text-white text-xl px-8"
         >
         Get Started
             <svg
@@ -46,8 +50,9 @@ export function Home() {
                 d="M9 5l7 7-7 7"
               />
             </svg>
-
+        
         </button>
+        </Link>
         </div>
       </main>
       </div>
