@@ -4,6 +4,7 @@ import Section from "../Components/HomePage/Section";
 import { MovieGrid } from "../Components/HomePage/MovieGrid";
 
 export function HomePage() {
+    const first = "Descubrir"
   const [sectionToggle, setSectionToggle] = useState({
     first: "Descubrir",
   });
@@ -16,12 +17,6 @@ export function HomePage() {
 
   return (
     <div>
-      <header>
-        <Link to="/pelis">
-          <h1 className="text-center text-5xl">PELICULAS</h1>
-        </Link>
-      </header>
-      <main>
         <Section
           title="Recomendaciones..."
           items={["Descubrir", "Próximamente"]}
@@ -30,7 +25,6 @@ export function HomePage() {
         >
           <MovieGrid fetch={sectionToggle.first} />
         </Section>
-      </main>
     </div>
   );
 }
