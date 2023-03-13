@@ -16,7 +16,7 @@ export function Home() {
     <div
     className="flex flex-col items-center justify-center min-h-screen bg-black"
     style={{
-      'background-image':
+      'backgroundImage':
         'linear-gradient(rgb(0 0 0 / 60%), rgb(0 0 0 / 60%)), url(https://images.lifestyleasia.com/wp-content/uploads/2019/11/01120945/netflix-image.jpg)',
     }}
   >
