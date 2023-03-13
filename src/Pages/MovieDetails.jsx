@@ -43,7 +43,3 @@ export default function MovieDetails() {
         </div>
     )
 }
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes

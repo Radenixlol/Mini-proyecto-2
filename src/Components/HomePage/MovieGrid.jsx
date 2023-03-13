@@ -6,24 +6,11 @@ import { Empty } from "./Empty";
 import axios from "axios";
 import { getUrl } from "../../utils/httpRequests";
 
-<<<<<<< Updated upstream
-
-
-export function MoviesGrid( {fetch}){
-    const [movies, setMovies] = useState([])
-    
-    useEffect (()=> {
-        const fetchMovies = async() =>{
-            const {data} = await api.get(request[fetch])
-            setMovies(data.results)
-        }
-=======
 export function MovieGrid({ search }) {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
->>>>>>> Stashed changes
 
   useEffect(() => {
     setIsLoading(true);
@@ -36,8 +23,6 @@ export function MovieGrid({ search }) {
     });
   }, [search, page]);
 
-<<<<<<< Updated upstream
-=======
   if (!isLoading && movies.length === 0) {
     return <Empty />;
   }
@@ -55,5 +40,4 @@ export function MovieGrid({ search }) {
       </ul>
     </InfiniteScroll>
   );
->>>>>>> Stashed changes
 }

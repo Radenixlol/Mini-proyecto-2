@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-import Navbar from './Components/Navbar/Navbar'
-=======
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
@@ -23,18 +17,11 @@ import {
   Register_link,
 } from "./Links/links";
 import HomePage from "./Pages/HomePage";
->>>>>>> Stashed changes
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-<<<<<<< Updated upstream
-        <>
-        <Navbar />
-        </>
-  )
-=======
     <>
       <Routes>
         <Route element={<Layout />}>
@@ -48,7 +35,6 @@ function App() {
       </Routes>
     </>
   );
->>>>>>> Stashed changes
 }
 
 export default App
