@@ -5,7 +5,7 @@ import { getMovieUrl } from "../utils/httpRequests";
 import axios from "axios";
 
 
-export default function MovieDetails() {
+export function MovieDetails() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
 
@@ -43,3 +43,4 @@ export default function MovieDetails() {
         </div>
     )
 }
+

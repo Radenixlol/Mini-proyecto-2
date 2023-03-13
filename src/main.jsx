@@ -10,10 +10,10 @@ import {
   Pelis_link,
   Register_link,
 } from "./Links/links";
-import { HomePage } from "./Pages/HomePage";
 import Login from './Pages/Login'
 import { MovieDetails } from "./Pages/MovieDetails";
 import Register from './Pages/Register'
+import { HomePage } from "./Pages/HomePage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

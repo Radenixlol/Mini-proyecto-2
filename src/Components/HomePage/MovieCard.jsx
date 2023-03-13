@@ -12,5 +12,4 @@ export function MovieCard({movie}){
             </Link>
         </li>
     )
-
 }
